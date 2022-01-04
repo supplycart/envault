@@ -6,9 +6,17 @@ jobs:
   update_env:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.0'
+
       - uses: deployphp/action@v1
         with:
           deployer-version: "7.0.0-rc.3"
           private-key: ${{ secrets.PRIVATE_KEY }}
           ssh-config: ${{ secrets.SSH_CONFIG }}
-          dep: run ${{ secrets.ENVAULT_COMMAND }}
+          known-hosts: ${{ secrets.KNOWN_HOST }}
+          dep: run '${{ secrets.ENVAULT_COMMAND }}'
