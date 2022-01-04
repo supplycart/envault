@@ -224,13 +224,3 @@ task('configure', [
     // 'configure:horizon',
     'configure:scheduler',
 ]);
-
-desc('Update .env file');
-task('deploy:env', function () {
-    $envaultCommand = get('envault_command');
-
-    if ($envaultCommand) {
-        cd('{{current_path}}');
-        run($envaultCommand);
-    }
-})->verbose();
