@@ -1,11 +1,15 @@
 name: deploy
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - production
 
 concurrency: deployment
 
 env:
-  DEPLOY_ENVIRONMENT: ${{ secrets.DEPLOY_ENVIRONMENT }}
+  DEPLOY_ENVIRONMENT: Production
   DEPLOY_ENVIRONMENT_TYPE: production
 
 jobs:
@@ -26,6 +30,7 @@ jobs:
           deployer-version: "7.0.0-rc.3"
           private-key: ${{ secrets.PRIVATE_KEY }}
           ssh-config: ${{ secrets.SSH_CONFIG }}
+          known-hosts: ${{ secrets.KNOWN_HOSTS }}
           dep: deploy
 
       - name: Notify Slack on deployment complete
