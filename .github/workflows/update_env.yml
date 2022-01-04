@@ -13,12 +13,9 @@ jobs:
         with:
           php-version: '8.0'
 
-      - run: echo ${{ secrets.PRIVATE_KEY }}
-
       - uses: deployphp/action@v1
         with:
           deployer-version: "7.0.0-rc.3"
           private-key: ${{ secrets.PRIVATE_KEY }}
           ssh-config: ${{ secrets.SSH_CONFIG }}
-          known-hosts: ${{ secrets.KNOWN_HOSTS }}
           dep: run '${{ secrets.ENVAULT_COMMAND }}'
