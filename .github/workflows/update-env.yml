@@ -3,7 +3,7 @@ name: Update .env file
 on: workflow_dispatch
 
 jobs:
-  update_env:
+  update-env:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
