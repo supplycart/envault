@@ -19,4 +19,4 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           ssh-config: ${{ secrets.SSH_CONFIG }}
           known-hosts: ${{ secrets.KNOWN_HOSTS }}
-          dep: run ${{ secrets.ENVAULT_COMMAND }}
+          dep: run ${{ secrets.ENVAULT_COMMAND }} sc-aws-envault
