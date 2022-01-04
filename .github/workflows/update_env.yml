@@ -18,4 +18,4 @@ jobs:
           deployer-version: "7.0.0-rc.3"
           private-key: ${{ secrets.PRIVATE_KEY }}
           ssh-config: ${{ secrets.SSH_CONFIG }}
-          dep: run '${{ secrets.ENVAULT_COMMAND }}'
+          dep: run ${{ secrets.ENVAULT_COMMAND }}
