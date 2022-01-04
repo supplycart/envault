@@ -32,5 +32,4 @@ if (file_exists(__DIR__ . '/deployer/hosts.php')) {
 
 
 // Hooks
-before('artisan:migrate', 'deploy:env');
 after('deploy:failed', 'deploy:unlock');
